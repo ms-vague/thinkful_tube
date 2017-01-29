@@ -8,31 +8,33 @@ function displayResults(data){ // get the data from youtube
 	if (data.items) {
 		data.items.forEach(function(item) {
 			var searchItemLink = watchUrl + item.id.videold;
-			var imageLink - item.snippet.thumbnails.medium.url;
+			var imageLink = item.snippet.thumbnails.medium.url;
 			var image = '<a href="' + searchItemLink + '" target="_blank"><img class="card-img-top" src="'+ imageLink +'" /></a>'; 
-			var elem = '<li class="card">' + image + '</li>';
+			/* var elem = '<li class="card">' + image + '</li>'; */
+			searchResults += '<li>' + image + '</li>';
 		});
 	}
 	else {
-		items += '<li>No results</li>';
+		searchResults += '<li>' + 'No results' + '</li>';
 	}
-	$('.search_results').html(items);
+	$('.search_results').html(items); 
+	/* loop up jquery html method. where is item/what is item? */
 }
 
 function getData(videos, callback){
 	var query = {
 		part: 'snippet',
 		key: 'AIzaSyDQONwNeCXcrqpL7aRJWwy3bbk5N4g3J_s',
-		q: 'text'
+		q: videos
 	},
-	$.getJSON(tubeyURL, query, callback); //endpoint for webAPI tubeyURL 
+	$.getJSON(tubeyURL, query, callback);
 }
 
 function submit(){
 	$('.search_results').submit(function(event) {
 		event.preventDefault();
-		var data = $(this).find('.js_data').val();
-		getData(query, searchResults);
+		var searchText = $(this).find('.js_data').val();
+		getData(searchText, searchResults);
 	});
 }
 
