@@ -4,9 +4,9 @@ var watchURL = 'https://www.youtube.com/watch?v=';
 
 function getData(videos, callback){
 	var query = {
-		"part": 'snippet',
-		"key": 'AIzaSyDQONwNeCXcrqpL7aRJWwy3bbk5N4g3J_s',
-		"q": videos
+		part: 'snippet',
+		key: 'AIzaSyDQONwNeCXcrqpL7aRJWwy3bbk5N4g3J_s',
+		q: videos
 	}
 	$.getJSON(tubeyURL, query, callback);
 }
