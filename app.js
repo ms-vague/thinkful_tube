@@ -4,9 +4,9 @@ var watchURL = 'https://www.youtube.com/watch?v=';
 
 function getData(videos, callback){
 	var query = {
-		part: 'snippet',
-		key: 'AIzaSyDQONwNeCXcrqpL7aRJWwy3bbk5N4g3J_s',
-		q: videos
+		"part": 'snippet',
+		"key": 'AIzaSyDQONwNeCXcrqpL7aRJWwy3bbk5N4g3J_s',
+		"q": videos
 	}
 	$.getJSON(tubeyURL, query, callback);
 }
@@ -15,7 +15,7 @@ function displayResults(data){ // get the data from youtube
 	var searchResults = $('.search_results');
 	searchResults.empty();
 	if (data.items) {
-		data.items.forEach(function(item) {
+		data.items.forEach(function(item){
 			var searchItemLink = watchUrl + item.id.videold;
 			var imageLink = item.snippet.thumbnails.medium.url;
 			var image = '<a href="' + searchItemLink + '" target="_blank"><img class="card-img-top" src="'+ imageLink +'" /></a>'; 
@@ -26,15 +26,15 @@ function displayResults(data){ // get the data from youtube
 	else {
 		searchResults += '<li>' + 'No results' + '</li>';
 	}
-	$('.search_results').html(items); 
+	$('.search_results').html(searchResults); 
 	/* look up jquery html method. where is item/what is item? */
 }
 
 function submit(){
-	$('.search_results').submit(function(event) {
+	$('form').on('submit', function(event){
 		event.preventDefault();
 		var searchText = $(this).find('.js_data').val();
-		getData(searchText, searchResults);
+		getData(searchText, displayResults);
 	});
 }
 
