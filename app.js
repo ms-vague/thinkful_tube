@@ -2,6 +2,15 @@ var tubeyURL = 'https://www.googleapis.com/youtube/v3/search';
 
 var watchURL = 'https://www.youtube.com/watch?v=';
 
+function getData(videos, callback){
+	var query = {
+		part: 'snippet',
+		key: 'AIzaSyDQONwNeCXcrqpL7aRJWwy3bbk5N4g3J_s',
+		q: videos
+	}
+	$.getJSON(tubeyURL, query, callback);
+}
+
 function displayResults(data){ // get the data from youtube
 	var searchResults = $('.search_results');
 	searchResults.empty();
@@ -18,16 +27,7 @@ function displayResults(data){ // get the data from youtube
 		searchResults += '<li>' + 'No results' + '</li>';
 	}
 	$('.search_results').html(items); 
-	/* loop up jquery html method. where is item/what is item? */
-}
-
-function getData(videos, callback){
-	var query = {
-		part: 'snippet',
-		key: 'AIzaSyDQONwNeCXcrqpL7aRJWwy3bbk5N4g3J_s',
-		q: videos
-	},
-	$.getJSON(tubeyURL, query, callback);
+	/* look up jquery html method. where is item/what is item? */
 }
 
 function submit(){
