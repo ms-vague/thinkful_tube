@@ -16,7 +16,7 @@ function displayResults(data){ // get the data from youtube
 	searchResults.empty();
 	if (data.items) {
 		data.items.forEach(function(item){
-			var searchItemLink = watchUrl + item.id.videold;
+			var searchItemLink = watchURL + item.id.videold;
 			var imageLink = item.snippet.thumbnails.medium.url;
 			var image = '<a href="' + searchItemLink + '" target="_blank"><img class="card-img-top" src="'+ imageLink +'" /></a>'; 
 			/* var elem = '<li class="card">' + image + '</li>'; */
