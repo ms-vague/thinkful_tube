@@ -34,8 +34,8 @@ function displayResults(data){ // get the data from youtube
 function submit(){
 	$('form').on('submit', function(event){
 		event.preventDefault();
-		var searchText = $(this).find('.js_data').val();
-		getData(query, displayResults);
+		var searchTerm = $(this).find('.js_data').val();
+		getData(searchTerm, displayResults);
 	});
 }
 
