@@ -17,6 +17,7 @@ function displayResults(data){ // get the data from youtube
 	searchResults.empty();
 	if (data.items) {
 		data.items.forEach(function(item){
+			console.log(data.items);
 			var searchItemLink = watchURL + item.id.videold;
 			var imageLink = item.snippet.thumbnails.medium.url;
 			var image = '<a href="' + searchItemLink + '" target="_blank"><img class="card-img-top" src="'+ imageLink +'" /></a>'; 
@@ -34,7 +35,7 @@ function displayResults(data){ // get the data from youtube
 function submit(){
 	$('form').on('submit', function(event){
 		event.preventDefault();
-		var searchTerm = $(this).find('.js_data').val();
+		var searchTerm = $('.js_data').val();
 		getData(searchTerm, displayResults);
 	});
 }
