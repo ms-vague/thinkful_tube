@@ -19,11 +19,11 @@ function displayResults(data){ // get the data from youtube
 	if (data.items) {
 		data.items.forEach(function(item){
 			/*console.log(data.items);*/
-			var searchItemLink = watchURL + item.id.videold;
+			var searchItemLink = watchURL + item.id.videoId;
 			var imageLink = item.snippet.thumbnails.medium.url;
-			var image = '<a href="' + searchItemLink + '" target="_blank"><img class="card-img-top" src="'+ imageLink +'" /></a>'; 
+			var image = '<a href="' + searchItemLink + '"target="_blank"><img class="card-img-top" src="'+ imageLink +'" /></a>'; 
 			/* var elem = '<li class="card">' + image + '</li>'; */
-			searchResults += '<li>' + image + '</li>';
+			searchResults += '<li><span>' + image + '</span></li>';
 		});
 	}
 	else {
