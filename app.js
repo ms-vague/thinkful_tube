@@ -13,7 +13,7 @@ function getData(searchTerm, callback){
 }
 
 function displayResults(data){ // get the data from youtube
-/*	var searchResults = $('.search_results');
+/*	var searchResults = $('.search_items');
 	searchResults.empty(); */
 	var searchResults = '';
 	if (data.items) {
@@ -29,7 +29,7 @@ function displayResults(data){ // get the data from youtube
 	else {
 		searchResults += '<li>' + 'No results' + '</li>';
 	}
-	$('.search_results').html(searchResults); 
+	$('.search_items').html(searchResults); 
 	/* look up jquery html method. where is item/what is item? */
 }
 

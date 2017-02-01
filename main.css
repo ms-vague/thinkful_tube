@@ -2,10 +2,6 @@
 	box-sizing: border-box;
 }
 
-li {
-	list-style: none;
-}
-
 h1, form {
 	text-align: center;
 }
@@ -15,4 +11,22 @@ h1 {
 	font-family: 'Boogaloo', cursive;
 	color: #000000;
 	font-size: 550%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 15px;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
 }
